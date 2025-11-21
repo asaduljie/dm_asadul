@@ -2,12 +2,17 @@ import streamlit as st
 import numpy as np
 import pickle
 import pandas as pd
+import os
 
-scaler = pickle.load(open("scaler.pkl", "rb"))
-model_rf = pickle.load(open("model_rf.pkl", "rb"))
-model_svm = pickle.load(open("model_svm.pkl", "rb"))
-model_log = pickle.load(open("model_log.pkl", "rb"))
-model_voting = pickle.load(open("model_voting.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+scaler = pickle.load(open(os.path.join(BASE_DIR, "scaler.pkl"), "rb"))
+model_rf = pickle.load(open(os.path.join(BASE_DIR, "model_rf.pkl"), "rb"))
+model_svm = pickle.load(open(os.path.join(BASE_DIR, "model_svm.pkl"), "rb"))
+model_log = pickle.load(open(os.path.join(BASE_DIR, "model_log.pkl"), "rb"))
+model_voting = pickle.load(open(os.path.join(BASE_DIR, "model_voting.pkl"), "rb"))
+df_cols = pickle.load(open(os.path.join(BASE_DIR, "columns.pkl"), "rb"))
+
 
 df_cols = pickle.load(open("columns.pkl", "rb"))
 
